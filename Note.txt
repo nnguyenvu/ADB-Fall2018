@@ -3,4 +3,6 @@ Team03 Area
 ADB_Nhom03
 Project: MongoDB + .NET Core 2.1
 
-Members : Đặng Nghĩa
+Members : 
+	+Đặng Nghĩa 		42.01.104.091
+	+Hoàng Văn Thông 	42.01.104.279
