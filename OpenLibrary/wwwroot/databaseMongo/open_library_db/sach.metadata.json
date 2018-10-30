@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"open_library_db.sach"},{"v":2,"key":{"_fts":"text","_ftsx":1},"name":"search_ten_sach","ns":"open_library_db.sach","default_language":"none","weights":{"ten_sach":1},"language_override":"language","textIndexVersion":3}],"uuid":"8ec37c06ff4b4b8c8b9c47a377a7d592"}

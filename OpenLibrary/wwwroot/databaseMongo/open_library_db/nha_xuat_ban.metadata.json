@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"open_library_db.nha_xuat_ban"},{"v":2,"key":{"_fts":"text","_ftsx":1},"name":"ten_nha_xuat_ban_text","ns":"open_library_db.nha_xuat_ban","weights":{"ten_nha_xuat_ban":1},"default_language":"english","language_override":"language","textIndexVersion":3}],"uuid":"edd5428f33f04a62aa82231c36fdc7be"}
