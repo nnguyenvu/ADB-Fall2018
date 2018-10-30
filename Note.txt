@@ -1,2 +1,6 @@
-
+﻿
 Team03 Area
+ADB_Nhom03
+Project: MongoDB + .NET Core 2.1
+
+Members : Đặng Nghĩa
