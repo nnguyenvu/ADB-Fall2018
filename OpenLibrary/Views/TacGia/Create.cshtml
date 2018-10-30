@@ -1,0 +1,47 @@
+﻿@model OpenLibrary.Models.TacGia
+
+<h4>TacGia</h4>
+<hr />
+
+Tên tác giả : @ViewBag.ten_tac_gia
+Ngày sinh : @ViewBag.ngay_sinh
+Giới thiệu : @ViewBag.gioi_thieu
+
+
+<hr />
+Kết quả : @ViewBag.success
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="_id" class="control-label"></label>
+                <input asp-for="_id" class="form-control" />
+                <span asp-validation-for="_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenTacGia" class="control-label"></label>
+                <input asp-for="TenTacGia" class="form-control" name="ten_tac_gia" />
+                <span asp-validation-for="TenTacGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgaySinh" class="control-label"></label>
+                <input asp-for="NgaySinh" class="form-control" name="ngay_sinh" />
+                <span asp-validation-for="NgaySinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GioiThieu" class="control-label"></label>
+                <input asp-for="GioiThieu" class="form-control" name="gioi_thieu" />
+                <span asp-validation-for="GioiThieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,27 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("~/Areas/Admin/Views/Shared/Partial/head.cshtml")
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        @Html.Partial("~/Areas/Admin/Views/Shared/Partial/header.cshtml")
+        <!--header end-->
+        <!--sidebar start-->
+        @Html.Partial("~/Areas/Admin/Views/Shared/Partial/sidebar.cshtml")
+        <!--sidebar end-->
+        <!--main content start-->
+        <section id="main-content">
+            @RenderBody()
+            @Html.Partial("~/Areas/Admin/Views/Shared/Partial/text_right.cshtml")
+        </section>
+        <!--main content end-->
+    </section>
+    <!-- container section start -->
+    @Html.Partial("~/Areas/Admin/Views/Shared/Partial/scripts.cshtml")
+</body>
+
+</html>
+

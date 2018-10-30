@@ -1,0 +1,9 @@
+﻿@model List<OpenLibrary.Models.Sach>
+@using OpenLibrary.Models;
+@foreach (var i in Model)
+{
+    
+    <p>@i.TenSach  - @i.IdTacGia: @i.IdTacGia.GetTenTacGiaFromTacGiaCollection()</p>
+    <p>@i.IdLoaiSach - @i.IdLoaiSach.GetTenLoaiSachFromLoaiSachCollection()  - @i.IdNhaXuatBan -  @i.IdNhaXuatBan.GetTenNhaXuatBanFromNhaXuatBanCollection()</p>
+    <br/>
+}

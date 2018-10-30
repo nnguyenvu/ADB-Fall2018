@@ -1,0 +1,33 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+@Html.Partial("~/Views/Partial/head.cshtml")
+<body>
+    <!----container---->
+    <div class="container">
+        <!----top-header---->
+        @Html.Partial("~/Views/Partial/top_header.cshtml")
+        <!----//top-header---->
+        <!---top-header-nav---->
+        @Html.Partial("~/Views/Partial/top_header_nav.cshtml")
+    </div>
+    <!--//top-header-nav---->
+    
+    <!-- Slideshow 4 -->
+    @Html.Partial("~/Views/Partial/slider.cshtml")
+    <!----- //End-slider---->
+    <!----content---->
+    <div class="content">
+        @RenderBody()
+        <!----content---->
+        <!----footer--->
+        @Html.Partial("~/Views/Partial/footer.cshtml")
+        <!---//footer--->
+        <!---copy-right--->
+        @Html.Partial("~/Views/Partial/copy_right.cshtml")
+        <!--//copy-right--->
+    </div>
+    <!----container---->
+</body>
+</html>
+
