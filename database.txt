@@ -1,0 +1,36 @@
+use mongodb_Demo
+
+db.createCollection(conlectionName);
+/* 1 createdAt:10/30/2018, 8:47:47 PM*/
+{
+	"_id" : ObjectId("5bd861038d970e020436e7ef"),
+	"Name" : "Nguyễn Văn A",
+	"password" : "a123",
+	"email" : "nguyenvana@gmail.com"
+},
+
+/* 2 createdAt:10/30/2018, 8:47:26 PM*/
+{
+	"_id" : ObjectId("5bd860ee8d970e020436e7ee"),
+	"Name" : "Nguyễn Thị Tèo",
+	"password" : "teo123",
+	"email" : "thiteo@gmail.com"
+},
+
+/* 3 createdAt:10/29/2018, 8:11:41 PM*/
+{
+	"_id" : ObjectId("5bd7070d8d97040f7c048de2"),
+	"Name" : "asdasdasd",
+	"password" : "asd123",
+	"email" : "admin@gmail.com"
+},
+
+/* 4 createdAt:10/29/2018, 8:07:21 PM*/
+{
+	"_id" : ObjectId("5bd706098d97040f7c048de0"),
+	"Name" : "vuonga",
+	"password" : "123aa1",
+	"email" : "111111"
+}
+
+
