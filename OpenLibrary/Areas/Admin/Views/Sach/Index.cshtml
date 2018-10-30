@@ -1,0 +1,106 @@
+﻿@model IPagedList<OpenLibrary.Areas.Admin.Models.Sach>
+@using OpenLibrary.Areas.Admin.Models
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Mvc.Common;
+@using X.PagedList;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i>@ViewData["title_table"]</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="@Url.Action("Index","Home")">Trang Chủ</a></li>
+                <li><i class="fa fa-table"></i>Bảng</li>
+                <li><i class="fa fa-th-list"></i>@ViewData["title_table"]</li>
+            </ol>
+        </div>
+    </div>
+    <!-- page start-->
+    <div class="row">
+        <div class="col-lg-6">
+            <a class="btn btn-info" href="../../admin/sach/add" title="Bootstrap 3 themes generator">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+        <div class="col-lg-6" style="text-align:right">
+            <form class="navbar-form" method="get" >
+                <input class="form-control" placeholder="Search" type="text" name="searchString">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            @if (!ViewBag.hasSearchResult)
+            {
+                <h1>
+                KHÔNG TÌM THẤY
+                </h1>
+                <h3>Kết quả cho từ khóa : <span style="color:red;font-weight:bold">@ViewBag.searchString</span>  không được thấy.</h3>
+                <h4>Hãy thử lại mới một từ khóa mới</h4>
+            }
+            else
+            {
+                <section class="panel">
+                    <table class="table table-striped table-advance table-hover">
+                        <tbody>
+                            <tr>
+                                <th>TÊN SÁCH</th>
+                                <th>TÁC GIẢ</th>
+                                <th>LOẠI SÁCH</th>
+                                <th>NHÀ XUẤT BẢN</th>
+                                <th>GIỚI THIỆU</th>
+                                <th>HÌNH</th>
+                                <th>ĐƠN GIÁ</th>
+                                <th>TÁC VỤ</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@item.TenSach</td>
+                                    <td>@item.IdTacGia.GetTenTacGiaFromTacGiaCollection()</td>
+                                    <td>@item.IdLoaiSach.GetTenLoaiSachFromLoaiSachCollection()</td>
+                                    <td>@item.IdNhaXuatBan.GetTenNhaXuatBanFromNhaXuatBanCollection()</td>
+                                    <td>@item.GioiThieu</td>
+                                    <td>
+                                        <img src="~/images_books/@item.Hinh" />
+                                    </td>
+                                    <td>@item.DonGia.ToString()</td>
+                                    <td>
+                                        <a class="btn btn-success" href="../../admin/sach/edit/@item._id" title="Bootstrap 3 themes generator"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger" href="../../admin/sach/delete/@item._id" title="Bootstrap 3 themes generator"><i class="material-icons">delete_sweep</i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!--Phan trang-->
+                    @{
+                        if (ViewBag.hasPagination)
+                        {
+                            <div style="text-align:center">
+                                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", "sach", new {page=page,searchString=ViewBag.searchString}),
+                                                    new PagedListRenderOptions {
+                                                        LiElementClasses = new string[] { "page-item" },  //class the li cua bootstrap
+                                                        PageClasses = new string[] { "page-link" },  //class the a cua  bootstrap
+                                                        MaximumPageNumbersToDisplay = 3
+                                                    })
+                            </div>
+                        }
+                    }
+                    <!-- END Phan trang-->
+                </section>
+            }
+
+        </div>
+    </div>
+    <!-- page end-->
+</section>
+
+

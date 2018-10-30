@@ -1,0 +1,122 @@
+﻿@model OpenLibrary.Areas.Admin.Models.AddViewModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-file-text-o"></i> @ViewData["title_table"]</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="@Url.Action("Index","Home")">Trang Chủ</a></li>
+                <li><i class="icon_document_alt"></i>Biểu mẫu</li>
+                <li><i class="fa fa-file-text-o"></i>@ViewData["title_table"]</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    @ViewData["title_table"]
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal " method="post" enctype="multipart/form-data" action="/admin/sach/edit">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">TÊN SÁCH</label>
+                            <input type="hidden" asp-for="IdSach" />
+                            <div class="col-sm-6">
+                                <input asp-for="TenSach" type="text" class="form-control round-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="inputSuccess">LOẠI SÁCH</label>
+                            <div class="col-lg-6">
+           
+                                <select asp-for="IdLoaiSach" class="form-control m-bot15" asp-items="@(new SelectList(Model.listLoaiSach,"_id","TenLoaiSach",Model.IdLoaiSach))">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="inputSuccess">TÁC GIẢ</label>
+                            <div class="col-lg-6">
+                                <select asp-for="IdTacGia" class="form-control m-bot15" asp-items=@(new SelectList(Model.listTacGia,"_id","TenTacGia",Model.IdTacGia))>
+                                    <option>Select one...</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="inputSuccess">NHÀ XUẤT BẢN</label>
+                            <div class="col-lg-6">
+                                <select asp-for="IdNhaXuatBan" class="form-control m-bot15" asp-items="@(new SelectList(Model.listNhaXuatBan,"_id","TenNhaXuatBan"))">
+                                    <option>select one..</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">GIỚI THIỆU</label>
+                            <div class="col-sm-6">
+                                <textarea asp-for="GioiThieu" cols="75" rows="15"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">TRỌNG LƯỢNG (gram)</label>
+                            <div class="col-sm-6">
+                                <input asp-for="TrongLuong" type="number" min="0" class="form-control round-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ĐƠN GIÁ (VND)</label>
+                            <div class="col-sm-6">
+                                <input asp-for="DonGia" type="number" class="form-control round-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">GIÁ BÌA (VND)</label>
+                            <div class="col-sm-6">
+                                <input asp-for="GiaBia" type="number" class="form-control round-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">SÁCH NỔI BẬT</label>
+                            <div class="col-sm-6">
+                                <div class="material-switch pull-right">
+                                    <input asp-for="NoiBat" id="sach_noi_bat" type="checkbox">
+                                    <label for="sach_noi_bat" class="label-success"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">HIỆN THỊ</label>
+                            <div class="col-sm-6">
+                                <div class="material-switch pull-right">
+                                    <input asp-for="TrangThai" id="hien_thi" type="checkbox">
+                                    <label for="hien_thi" class="label-success"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label for="exampleInputFile">HÌNH</label>
+                            <div class="col-sm-6">
+                                <input type="file" asp-for="image" id="exampleInputFile" >
+                                <p class="help-block">Vui lòng chọn đúng phần mở rộng là png|jpeg|jpg|gif</p>
+                                <img  id="imgpreview" src="~/images_books/@Model.Hinh" width="200"/>
+                                <input type="hidden" asp-for="Hinh" />
+                            </div>
+                        </div>
+                        <button type="submit">Cập Nhật</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+
+</section>
+
