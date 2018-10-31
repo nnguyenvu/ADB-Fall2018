@@ -1,3 +1,0 @@
-b1: chay phan mem nosqlbooster
-b2: chay database
-b3: mo visual chay file Demo_MonGoDB
